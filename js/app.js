@@ -8,13 +8,17 @@ let Branche1 = {
     Avg_Cookies: 6.3,
     Cust_each_hour: [],
     Cookies_sold_each_hour: [],
+    total: 0,
     get_Cust_each_hour: function () {
+
         for (let i = 0; i < time.length; i++) {
             this.Cust_each_hour[i] = randomAvg(this.Min_Cust, this.Max_Cust);
             //console.log(this.Cust_each_hour[i]);
-            this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]) + '  cookies';
+            this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]);
             //console.log(this.Cookies_sold_each_hour[i]);
+            this.total += this.Cookies_sold_each_hour[i];
         }
+
         //console.log(this.Cookies_sold_each_hour + ' cook');
         //console.log(this.Cust_each_hour + ' cust');
     }
@@ -28,12 +32,14 @@ let Branche2 = {
     Avg_Cookies: 1.2,
     Cust_each_hour: [],
     Cookies_sold_each_hour: [],
+    total: 0,
     get_Cust_each_hour: function () {
         for (let i = 0; i < time.length; i++) {
             this.Cust_each_hour[i] = randomAvg(this.Min_Cust, this.Max_Cust);
-            console.log(this.Cust_each_hour[i]);
-            this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]) + '  cookies';
-            console.log(this.Cookies_sold_each_hour[i]);
+            //console.log(this.Cust_each_hour[i]);
+            this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]);
+            // console.log(this.Cookies_sold_each_hour[i]);
+            this.total += this.Cookies_sold_each_hour[i];
         }
         //console.log(this.Cookies_sold_each_hour + ' cook');
         //console.log(this.Cust_each_hour + ' cust');
@@ -53,12 +59,14 @@ let Branche3 = {
     Avg_Cookies: 3.7,
     Cust_each_hour: [],
     Cookies_sold_each_hour: [],
+    total: 0,
     get_Cust_each_hour: function () {
         for (let i = 0; i < time.length; i++) {
             this.Cust_each_hour[i] = randomAvg(this.Min_Cust, this.Max_Cust);
             //console.log(this.Cust_each_hour[i]);
-            this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]) + '  cookies';
+            this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]);
             //console.log(this.Cookies_sold_each_hour[i]);
+            this.total += this.Cookies_sold_each_hour[i];
         }
         //console.log(this.Cookies_sold_each_hour + ' cook');
         //console.log(this.Cust_each_hour + ' cust');
@@ -78,23 +86,22 @@ let Branche4 = {
     Avg_Cookies: 2.3,
     Cust_each_hour: [],
     Cookies_sold_each_hour: [],
+    total: 0,
     get_Cust_each_hour: function () {
         for (let i = 0; i < time.length; i++) {
             this.Cust_each_hour[i] = randomAvg(this.Min_Cust, this.Max_Cust);
             //console.log(this.Cust_each_hour[i]);
-            this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]) + '  cookies';
+            this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]);
             //console.log(this.Cookies_sold_each_hour[i]);
+            this.total += this.Cookies_sold_each_hour[i];
         }
         //console.log(this.Cookies_sold_each_hour + ' cook');
         //console.log(this.Cust_each_hour + ' cust');
     }
-    /* get_Cookies_sold_each_hour: function () {
-        for (let i = 0; i < time.length; i++) {
-            this.Cust_each_hour[i] = randomAvg(this.Min_Cust, this.Max_Cust);
-        }
-    }*/
+
 }
 Branche4.get_Cust_each_hour();
+
 let Branche5 = {
     location: 'Lima',
     Min_Cust: 2,
@@ -102,21 +109,20 @@ let Branche5 = {
     Avg_Cookies: 4.6,
     Cust_each_hour: [],
     Cookies_sold_each_hour: [],
+    total: 0,
     get_Cust_each_hour: function () {
+
+
         for (let i = 0; i < time.length; i++) {
             this.Cust_each_hour[i] = randomAvg(this.Min_Cust, this.Max_Cust);
             //console.log(this.Cust_each_hour[i]);
-            this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]) + '  cookies';
+            this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]);
             //console.log(this.Cookies_sold_each_hour[i]);
+            this.total += this.Cookies_sold_each_hour[i];
         }
-        //console.log(this.Cookies_sold_each_hour + ' cook');
-        //console.log(this.Cust_each_hour + ' cust');
+
     }
-    /* get_Cookies_sold_each_hour: function () {
-        for (let i = 0; i < time.length; i++) {
-            this.Cust_each_hour[i] = randomAvg(this.Min_Cust, this.Max_Cust);
-        }
-    }*/
+
 }
 Branche5.get_Cust_each_hour();
 
@@ -132,8 +138,13 @@ parent.appendChild(uL1);
 for (let i = 0; i < time.length; i++) {
     let listItem = document.createElement('li');
     uL1.appendChild(listItem);
-    listItem.textContent = time[i] + Branche1.Cookies_sold_each_hour[i];
+    listItem.textContent = time[i] + Branche1.Cookies_sold_each_hour[i] + '  cookies';
+    if (i == time.length - 1) {
+        uL1.appendChild(listItem);
+        listItem.textContent = `total: ${Branche1.total} cookies`;
+    }
 }
+
 //list2
 
 let uL2 = document.createElement('ul');
@@ -143,7 +154,11 @@ parent.appendChild(uL2);
 for (let i = 0; i < time.length; i++) {
     let listItem = document.createElement('li');
     uL2.appendChild(listItem);
-    listItem.textContent = time[i] + Branche2.Cookies_sold_each_hour[i];
+    listItem.textContent = time[i] + Branche2.Cookies_sold_each_hour[i] + '  cookies';
+    if (i == time.length - 1) {
+        uL2.appendChild(listItem);
+        listItem.textContent = `total: ${Branche2.total} cookies`;
+    }
 }
 let uL3 = document.createElement('ul');
 uL3.textContent = Branche3.location;
@@ -152,7 +167,11 @@ parent.appendChild(uL3);
 for (let i = 0; i < time.length; i++) {
     let listItem = document.createElement('li');
     uL3.appendChild(listItem);
-    listItem.textContent = time[i] + Branche3.Cookies_sold_each_hour[i];
+    listItem.textContent = time[i] + Branche3.Cookies_sold_each_hour[i] + '  cookies';
+    if (i == time.length - 1) {
+        uL3.appendChild(listItem);
+        listItem.textContent = `total: ${Branche3.total} cookies`;
+    }
 }
 let uL4 = document.createElement('ul');
 uL4.textContent = Branche4.location;
@@ -161,14 +180,24 @@ parent.appendChild(uL4);
 for (let i = 0; i < time.length; i++) {
     let listItem = document.createElement('li');
     uL4.appendChild(listItem);
-    listItem.textContent = time[i] + Branche4.Cookies_sold_each_hour[i];
+    listItem.textContent = time[i] + Branche4.Cookies_sold_each_hour[i] + '  cookies';
+    if (i == time.length - 1) {
+        uL4.appendChild(listItem);
+        listItem.textContent = `total: ${Branche4.total} cookies`;
+    }
 }
+
+
 let uL5 = document.createElement('ul');
 uL5.textContent = Branche5.location;
-parent.appendChild(uL1);
+parent.appendChild(uL5);
 
 for (let i = 0; i < time.length; i++) {
     let listItem = document.createElement('li');
     uL5.appendChild(listItem);
-    listItem.textContent = time[i] + Branche5.Cookies_sold_each_hour[i];
+    listItem.textContent = time[i] + Branche5.Cookies_sold_each_hour[i] + '  cookies';
+    if (i == time.length - 1) {
+        uL5.appendChild(listItem);
+        listItem.textContent = `total: ${Branche5.total} cookies`;
+    }
 }

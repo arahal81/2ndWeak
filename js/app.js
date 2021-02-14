@@ -139,12 +139,11 @@ for (let i = 0; i < time.length; i++) {
     let listItem = document.createElement('li');
     uL1.appendChild(listItem);
     listItem.textContent = time[i] + Branche1.Cookies_sold_each_hour[i] + '  cookies';
-    if (i == time.length - 1) {
-        uL1.appendChild(listItem);
-        listItem.textContent = `total: ${Branche1.total} cookies`;
-    }
-}
 
+}
+let listItem = document.createElement('li');
+uL1.appendChild(listItem);
+listItem.textContent = `total: ${Branche1.total} cookies`;
 //list2
 
 let uL2 = document.createElement('ul');
@@ -155,11 +154,13 @@ for (let i = 0; i < time.length; i++) {
     let listItem = document.createElement('li');
     uL2.appendChild(listItem);
     listItem.textContent = time[i] + Branche2.Cookies_sold_each_hour[i] + '  cookies';
-    if (i == time.length - 1) {
-        uL2.appendChild(listItem);
-        listItem.textContent = `total: ${Branche2.total} cookies`;
-    }
+
 }
+let listItem1 = document.createElement('li');
+uL2.appendChild(listItem1);
+listItem1.textContent = `total: ${Branche2.total} cookies`;
+
+//list3
 let uL3 = document.createElement('ul');
 uL3.textContent = Branche3.location;
 parent.appendChild(uL3);
@@ -168,11 +169,13 @@ for (let i = 0; i < time.length; i++) {
     let listItem = document.createElement('li');
     uL3.appendChild(listItem);
     listItem.textContent = time[i] + Branche3.Cookies_sold_each_hour[i] + '  cookies';
-    if (i == time.length - 1) {
-        uL3.appendChild(listItem);
-        listItem.textContent = `total: ${Branche3.total} cookies`;
-    }
+
 }
+let listItem2 = document.createElement('li');
+uL3.appendChild(listItem2);
+listItem2.textContent = `total: ${Branche3.total} cookies`;
+
+//list4
 let uL4 = document.createElement('ul');
 uL4.textContent = Branche4.location;
 parent.appendChild(uL4);
@@ -181,13 +184,15 @@ for (let i = 0; i < time.length; i++) {
     let listItem = document.createElement('li');
     uL4.appendChild(listItem);
     listItem.textContent = time[i] + Branche4.Cookies_sold_each_hour[i] + '  cookies';
-    if (i == time.length - 1) {
-        uL4.appendChild(listItem);
-        listItem.textContent = `total: ${Branche4.total} cookies`;
-    }
+
 }
+let listItem3 = document.createElement('li');
+uL4.appendChild(listItem3);
+listItem3.textContent = `total: ${Branche4.total} cookies`;
 
 
+
+//list5
 let uL5 = document.createElement('ul');
 uL5.textContent = Branche5.location;
 parent.appendChild(uL5);
@@ -196,8 +201,8 @@ for (let i = 0; i < time.length; i++) {
     let listItem = document.createElement('li');
     uL5.appendChild(listItem);
     listItem.textContent = time[i] + Branche5.Cookies_sold_each_hour[i] + '  cookies';
-    if (i == time.length - 1) {
-        uL5.appendChild(listItem);
-        listItem.textContent = `total: ${Branche5.total} cookies`;
-    }
+
 }
+let listItem4 = document.createElement('li');
+uL5.appendChild(listItem4);
+listItem4.textContent = `total: ${Branche5.total} cookies`;

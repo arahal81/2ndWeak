@@ -1,6 +1,6 @@
 'use strict';
-let time = ['6am: ', '7am: ', '8am: ', '9am: ', '10am: ', '11am: ', '12pm: ', '1pm: ', '2pm: ', '3pm: ', '4pm: ', '5pm: ', '6pm: ', '7pm: ']
-//1st list 
+let time = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm']
+/*//1st list 
 let Branche1 = {
     location: 'Seattle',
     Min_Cust: 23,
@@ -44,11 +44,7 @@ let Branche2 = {
         //console.log(this.Cookies_sold_each_hour + ' cook');
         //console.log(this.Cust_each_hour + ' cust');
     }
-    /* get_Cookies_sold_each_hour: function () {
-        for (let i = 0; i < time.length; i++) {
-            this.Cust_each_hour[i] = randomAvg(this.Min_Cust, this.Max_Cust);
-        }
-    }*/
+
 }
 Branche2.get_Cust_each_hour();
 
@@ -71,11 +67,7 @@ let Branche3 = {
         //console.log(this.Cookies_sold_each_hour + ' cook');
         //console.log(this.Cust_each_hour + ' cust');
     }
-    /* get_Cookies_sold_each_hour: function () {
-        for (let i = 0; i < time.length; i++) {
-            this.Cust_each_hour[i] = randomAvg(this.Min_Cust, this.Max_Cust);
-        }
-    }*/
+
 }
 Branche3.get_Cust_each_hour();
 
@@ -205,4 +197,139 @@ for (let i = 0; i < time.length; i++) {
 }
 let listItem4 = document.createElement('li');
 uL5.appendChild(listItem4);
-listItem4.textContent = `total: ${Branche5.total} cookies`;
+listItem4.textContent = `total: ${Branche5.total} cookies`;*/
+function Salamon(location, Min_Cust, Max_Cust, Avg_Cookies) {
+    this.location = location;;
+    this.Min_Cust = Min_Cust;
+    this.Max_Cust = Max_Cust;
+    this.Avg_Cookies = Avg_Cookies;
+    this.Cust_each_hour = [];
+    this.Cookies_sold_each_hour = [];
+    this.total = 0;
+}
+Salamon.prototype.get_Cust_each_hour = function () {
+    // this.age = random(3, 12) + ' months'
+    for (let i = 0; i < time.length; i++) {
+        this.Cust_each_hour[i] = randomAvg(this.Min_Cust, this.Max_Cust);
+        //console.log(this.Cust_each_hour[i]);
+
+    }
+}
+Salamon.prototype.get_Cookies_sold_each_hour = function () {
+    // this.age = random(3, 12) + ' months'
+    for (let i = 0; i < time.length; i++) {
+
+        this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]);
+        //console.log(this.Cookies_sold_each_hour[i]);
+        this.total += this.Cookies_sold_each_hour[i];
+    }
+}
+
+//get random avg
+function randomAvg(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+let seattle = new Salamon('Seattle', 23, 65, 6.3);
+seattle.get_Cust_each_hour();
+seattle.get_Cookies_sold_each_hour();
+
+let tokyo = new Salamon('Tokyo', 23, 65, 6.3);
+tokyo.get_Cust_each_hour();
+tokyo.get_Cookies_sold_each_hour();
+
+
+let dubai = new Salamon('Dubai', 3, 24, 1.2);
+dubai.get_Cust_each_hour();
+dubai.get_Cookies_sold_each_hour();
+
+
+
+let paris = new Salamon('Paris', 20, 38, 2.3);
+paris.get_Cust_each_hour();
+paris.get_Cookies_sold_each_hour();
+
+let lima = new Salamon('Lima', 2, 16, 4.6);
+lima.get_Cust_each_hour();
+lima.get_Cookies_sold_each_hour();
+
+let tot = {
+    total: [],
+    get_tot: function () {
+
+
+        for (let i = 0; i < time.length; i++) {
+            this.total[i] = seattle.Cookies_sold_each_hour[i] + tokyo.Cookies_sold_each_hour[i] + dubai.Cookies_sold_each_hour[i] + paris.Cookies_sold_each_hour[i] + lima.Cookies_sold_each_hour[i];
+        }
+        this.total[time.length] = seattle.total + tokyo.total + dubai.total + paris.total + lima.total;
+    }
+
+}
+tot.get_tot();
+
+
+
+let parent = document.getElementById('Branches');
+let table = document.createElement('table');
+parent.appendChild(table);
+
+
+
+
+
+function render_thr() {
+
+    let hr = document.createElement('tr');
+    table.appendChild(hr);
+    let th = document.createElement('th');
+    hr.appendChild(th);
+
+    for (let i = 0; i < time.length; i++) {
+        let th = document.createElement('th');
+        hr.appendChild(th);
+        th.textContent = time[i];
+    }
+    let th1 = document.createElement('th');
+    hr.appendChild(th1);
+    th1.textContent = "Daily Location Total";
+}
+
+
+Salamon.prototype.render_td = function () {
+    let tdr = document.createElement('tr');
+    table.appendChild(tdr);
+    let td = document.createElement('td');
+    tdr.appendChild(td);
+    td.textContent = this.location;
+
+    for (let i = 0; i < time.length; i++) {
+        let td = document.createElement('td');
+        tdr.appendChild(td);
+        td.textContent = this.Cookies_sold_each_hour[i];
+    }
+    let td1 = document.createElement('td');
+    tdr.appendChild(td1);
+    td1.textContent = this.total;
+}
+function render_tot() {
+    let tdr = document.createElement('tr');
+    table.appendChild(tdr);
+    let td = document.createElement('td');
+    tdr.appendChild(td);
+    td.textContent = "Total";
+
+    for (let i = 0; i <= time.length; i++) {
+        let td = document.createElement('td');
+        tdr.appendChild(td);
+        td.textContent = tot.total[i];
+    }
+
+}
+
+render_thr();
+seattle.render_td();
+tokyo.render_td();
+dubai.render_td();
+paris.render_td();
+lima.render_td();
+render_tot();

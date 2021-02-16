@@ -1,3 +1,27 @@
 table, th, td {
   border: 1px solid black;
+  text-align: center;
+}
+
+.li1{  display: inline;}
+a{
+
+  text-decoration: none;
+  color: black;
+}
+#mainS{
+  width: 100%;
+}
+.sec{
+  border: solid 3px salmon;
+   display: inline-block;
+   padding: 6px;
+   margin: 3px;
+
+}
+body{
+  background-color: sandybrown;
+}
+footer{
+  text-align: center;
 }

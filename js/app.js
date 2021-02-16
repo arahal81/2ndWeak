@@ -314,12 +314,12 @@ Salamon.prototype.render_td = function () {
 function render_tot() {
     let tdr = document.createElement('tr');
     table.appendChild(tdr);
-    let td = document.createElement('td');
+    let td = document.createElement('th');
     tdr.appendChild(td);
     td.textContent = "Total";
 
     for (let i = 0; i <= time.length; i++) {
-        let td = document.createElement('td');
+        let td = document.createElement('th');
         tdr.appendChild(td);
         td.textContent = tot.total[i];
     }

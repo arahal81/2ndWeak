@@ -224,6 +224,7 @@ Salamon.prototype.get_Cookies_sold_each_hour = function () {
         this.Cookies_sold_each_hour[i] = Math.floor(this.Avg_Cookies * this.Cust_each_hour[i]);
         //console.log(this.Cookies_sold_each_hour[i]);
         this.total += this.Cookies_sold_each_hour[i];
+
     }
 }
 

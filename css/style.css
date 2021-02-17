@@ -25,6 +25,20 @@ body{
 footer{
   text-align: center;
 }
+input[type=text],input[type=number],input[type=submit] {
+  width: 95%;
+  padding: 7px 10px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid rgb(182, 110, 16);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+#bransh{
+  align-items: center;
+  width: 50%;
+}
+
 .img1 {
   height: 5cm;;
   width: 13cm;

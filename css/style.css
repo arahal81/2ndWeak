@@ -47,3 +47,15 @@ input[type=text],input[type=number],input[type=submit] {
   height: 5cm;;
   width: 13cm;
 }
+h1,h2,h3,h4,h5,h6,th{
+  font-family: 'Sedgwick Ave', cursive;
+  color: crimson;
+}
+td,p{
+  font-family: Arial, sans-serif;
+  color: deeppink;
+}
+label,input,li,a{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: darkmagenta;
+}
